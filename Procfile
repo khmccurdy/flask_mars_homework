@@ -1,1 +1,1 @@
-web gunicorn flask_mars:app
+web: gunicorn flask_mars:app
