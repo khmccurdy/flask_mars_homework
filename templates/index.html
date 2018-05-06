@@ -29,7 +29,7 @@
           </div>
       </div>
       <div class="row">
-          <div class="col-md-8" style="overflow:auto">
+          <div class="col-md-8" style="overflow:hidden">
             <h3>Featured Mars Image</h3>
             <img alt="Featured Image from JPL website" style="height:100%; width:100%; object-fit:scale-down; margin-bottom:15pt" src="{{mars.jpl_img}}" >
             <!-- <img alt="Featured Image from JPL website" style="height:100%; width:100%; object-fit:scale-down; margin-bottom:15pt" src="https://www.jpl.nasa.gov/spaceimages/images/largesize/PIA16469_hires.jpg"> -->
@@ -41,9 +41,9 @@
                     <p>{{mars.mars_weather}}</p>
                 </div>
               </div>
-              <table class="table">
+              <div class="table table-bordered table-hover table-condensed">
                   {{mars.facts_table|safe}}
-              </table>
+              </div>
           </div>
       </div>
       <div class="row">
