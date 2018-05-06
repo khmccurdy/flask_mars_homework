@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Mission to Mars</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+    <div class="container">
+      <div class="jumbotron" style="text-align:center">
+        <h1>Mission to Mars</h1>
+        
+        <p><a class="btn btn-primary btn-lg" href="scrape" role="button" id="scrape_btn">Scrape new data</a></p>
+        <p id="scrape_loading"></p>
+        <script>
+            var button = document.querySelector("#scrape_btn");
+            var loadText = document.querySelector("#scrape_loading");
+            button.addEventListener("click", function(){
+                loadText.innerHTML = "Scraping data. This may take a minute...";
+            });
+        </script>
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+            <h3>Latest Mars News</h3>
+            <h4>{{mars.news_title}}</h4>
+            <p>{{mars.news_text}}</p>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-8" style="overflow:auto">
+            <h3>Featured Mars Image</h3>
+            <img alt="Featured Image from JPL website" style="height:100%; width:100%; object-fit:scale-down; margin-bottom:15pt" src="{{mars.jpl_img}}" >
+            <!-- <img alt="Featured Image from JPL website" style="height:100%; width:100%; object-fit:scale-down; margin-bottom:15pt" src="https://www.jpl.nasa.gov/spaceimages/images/largesize/PIA16469_hires.jpg"> -->
+          </div>
+          <div class="col-md-4">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4>Current Weather on Mars</h4>
+                    <p>{{mars.mars_weather}}</p>
+                </div>
+              </div>
+              <table class="table">
+                  {{mars.facts_table|safe}}
+              </table>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+            <h2 style="text-align:center">Mars Hemispheres</h2>
+        </div>
+      </div>
+    
+      <div class="row">
+		{% for hi in mars.hem_images %}
+        <div class="col-md-6" style="margin-bottom: 30px; padding-top:30px">
+			<img src="{{hi.img_url}}" style="height:100%; width:100%; object-fit:scale-down; margin-bottom:0pt" alt="Image of {{hi.title}}">
+            <h5 style="text-align:center">{{hi.title}}</h5>
+            <br>
+        </div>
+		{% endfor %}
+      </div>
+	  
+    </div>
+</body>
+</html>
