@@ -24,6 +24,7 @@
       <div class="row">
           <div class="col-md-12">
             <h3>Latest Mars News</h3>
+            <!-- Not actually the latest, because bs4 doesn't seem to like JavaScript -->
             <h4>{{mars.news_title}}</h4>
             <p>{{mars.news_text}}</p>
           </div>
@@ -31,6 +32,7 @@
       <div class="row">
           <div class="col-md-8" style="overflow:hidden">
             <h3>Featured Mars Image</h3>
+            <p style="font-style:italic">(Actual relevance to Mars not gauranteed)</p>
             <img alt="Featured Image from JPL website" style="height:100%; width:100%; object-fit:scale-down; margin-bottom:15pt" src="{{mars.jpl_img}}" >
             <!-- <img alt="Featured Image from JPL website" style="height:100%; width:100%; object-fit:scale-down; margin-bottom:15pt" src="https://www.jpl.nasa.gov/spaceimages/images/largesize/PIA16469_hires.jpg"> -->
           </div>
