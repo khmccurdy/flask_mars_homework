@@ -9,3 +9,4 @@ beautifulsoup4==4.6.0
 requests==2.18.4
 gunicorn==19.8.1
 dnspython==1.15.0
+lxml==4.2.1
