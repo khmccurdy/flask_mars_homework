@@ -1,11 +1,13 @@
 from flask import Flask, render_template, jsonify, redirect
 from flask_pymongo import PyMongo
+import pymongo
 import scrape_mars
+import os
 
 app = Flask(__name__)
 
-mongo = PyMongo(app)
-
+#mongo = PyMongo(app)
+mongo = pymongo.MongoClient(os.environ.get('atlas_client_string'))
 
 @app.route("/")
 def index():
