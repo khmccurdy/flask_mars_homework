@@ -1,4 +1,5 @@
 from splinter import Browser
+import selenium
 from selenium import webdriver
 from bs4 import BeautifulSoup as bs
 import pandas as pd
@@ -22,9 +23,12 @@ def scrape():
     scrape_dict["news_text"] = news_text
 
     # ### JPL Mars Space Images - Featured Image
-
-    executable_path = {'executable_path': 'chromedriver.exe'}
-    browser = Browser('chrome', **executable_path, headless=False)
+    try:
+        executable_path = {'executable_path': 'chromedriver.exe'}
+        browser = Browser('chrome', **executable_path, headless=False)
+    except selenium.common.exceptions.WebDriverException:
+        executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
+        browser = Browser('chrome', **executable_path, headless=False)
 
     jpl_url = "https://www.jpl.nasa.gov/spaceimages/?search=featured&category=Mars"
     jpl_url_base = "https://www.jpl.nasa.gov"
