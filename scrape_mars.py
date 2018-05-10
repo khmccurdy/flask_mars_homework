@@ -27,11 +27,11 @@ def scrape():
         executable_path = {'executable_path': 'chromedriver.exe'}
         browser = Browser('chrome', **executable_path, headless=False)
     except selenium.common.exceptions.WebDriverException:
-        try:
+        # try:
             executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
             browser = Browser('chrome', **executable_path, headless=False)
-        except selenium.common.exceptions.WebDriverException:
-            print("Browser doesn't like me.")
+        # except selenium.common.exceptions.WebDriverException:
+        #     print("Browser doesn't like me.")
 
     jpl_url = "https://www.jpl.nasa.gov/spaceimages/?search=featured&category=Mars"
     jpl_url_base = "https://www.jpl.nasa.gov"
